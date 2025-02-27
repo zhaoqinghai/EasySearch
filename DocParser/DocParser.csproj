@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows10.0.19041.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Platforms>x64;x86</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.2.0" />
+    <PackageReference Include="IKVM.Maven.Sdk" Version="1.9.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
+    <PackageReference Include="System.IO.Packaging" Version="9.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DocParser.SourceGenerator\DocParser.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\EasySearchCore\EasySearchCore.csproj" />
+    <ProjectReference Include="..\Pdfium.Wrapper\Pdfium.Wrapper.vcxproj" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Platform)' == 'x64'">
+    <Content Include="runtimes\win-x64\pdfium.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <Link>pdfium.dll</Link>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Platform)' == 'x86'">
+    <Content Include="runtimes\win-x86\pdfium.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <Link>pdfium.dll</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <MavenReference Include="tika-core">
+      <groupId>org.apache.tika</groupId>
+      <artifactId>tika-core</artifactId>
+      <version>2.9.3</version>
+    </MavenReference>
+    <MavenReference Include="tika-parsers-standard-package">
+      <groupId>org.apache.tika</groupId>
+      <artifactId>tika-parser-microsoft-module</artifactId>
+      <version>2.9.3</version>
+    </MavenReference>
+  </ItemGroup>
+</Project>
+

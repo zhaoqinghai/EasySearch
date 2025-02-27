@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# MVVMTK0050: Using [ObservableObject] is not AOT compatible for WinRT
+dotnet_diagnostic.MVVMTK0050.severity = none

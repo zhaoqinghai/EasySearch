@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+    <PropertyGroup Condition="'$(PlatformTarget)' == 'x64' or '$(Platform)' == 'AnyCPU'">
+        <DefineConstants>x64</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(PlatformTarget)' == 'x86'">
+        <DefineConstants>x86</DefineConstants>
+    </PropertyGroup>
+    <ItemGroup Condition="'$(Platform)' == 'x64' or '$(Platform)' == 'AnyCPU'">
+        <Content Include="runtimes\Everything64.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+            <Link>Everything64.dll</Link>
+        </Content>
+        <Content Include="runtimes\x64\everything.exe">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+            <Link>qseverything.exe</Link>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Platform)' == 'x86'">
+        <Content Include="runtimes\Everything32.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+            <Link>Everything32.dll</Link>
+        </Content>
+        <Content Include="runtimes\x86\everything.exe">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+            <Link>qseverything.exe</Link>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Everything-qseverything.ini" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Everything-qseverything.ini">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+</Project>

@@ -1,0 +1,6 @@
+﻿SetWindowLong
+GetWindowLong
+WINDOW_EX_STYLE
+SendMessage
+WM_*
+HTCAPTION

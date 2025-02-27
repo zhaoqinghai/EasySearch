@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "EasySearchUI (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "EasySearchUI (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

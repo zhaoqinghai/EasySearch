@@ -1,0 +1,7 @@
+﻿{
+    "DocParser": {
+        "MaxTextLength": 2000000,
+        "MaxParseDocCount": 2000,
+        "Enabled": true
+    }
+}
